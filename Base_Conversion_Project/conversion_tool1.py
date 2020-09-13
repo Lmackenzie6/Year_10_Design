@@ -1,10 +1,15 @@
 import tkinter as tk
 
-print("Stage 3")
+print("Stage 5")
+'''
 
+
+
+
+
+'''
 
 def process(*args):
-	print("process")
 
 	val = ent_value.get()
 	print(val)
@@ -14,21 +19,40 @@ def process(*args):
 	print(check)
 
 
-	if (check == True):
-
-		#Remove leftmost 0
-		#Convert
-		lab_results.config(text = "VALID INPUT")
+	if (check):
+		val = remove0(val)
+		print(val)
+		result = base2to10(val)
+		lab_results.config(text = str(val) + " --> " + str(result))
 	else:
-		#update display with error message
 		lab_results.config(text = "INVALID")
 
 
 	ent_value.delete(0,tk.END)
 
+def base2to10(str):
+
+	n = 0
+	total = 0
+
+	for i in range(len(str) - 1, -1, -1):
+			print("***",n)
+			total = total + int(str[i]) * (2**n)
+			print("---",total)
+			n = n + 1
+
+	return total
+		
+
+def remove0(str):
+	
+	for i in range (0, len(str), 1):
+		if (str[i] == "1"):
+			return str[i:]
+
+	return str
 
 def check01(str):
-	print("Check 01")
 	num_0 = str.count("0")
 	num_1 = str.count("1")
 
