@@ -1,22 +1,51 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <!-- Compiled and minified CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <body>
 
 
+<div style="text-align: center; padding-top: 300px">
 
-      <a class="waves-effect waves-light btn">button</a>
+
+  <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Click here to view a list of NBA games<i class="small material-icons">expand_more</i></a>
+
+  
+
+  <ul id='dropdown1' class='dropdown-content'; style="text-align: center;">
+    <li><a href="#!"><i class="small material-icons">arrow_drop_down</i><center>Select the game you would like to view</center></li></a>
+      <li class="divider" tabindex="-1"></li>
+    <li><a href="#!"><center>MIA vs LAL</center></a></li>
+      <li class="divider" tabindex="-1"></li>
+    <li><a href="#!"><center>TOR vs NYK</center></a></li>
+      <li class="divider" tabindex="-1"></li>
+    <li><a href="#!"><center>BKN vs CHI</center></a></li>
+        <li class="divider" tabindex="-1"></li>
+    <li><a href="#!"><center>BOS vs MIL</center></a></li>
+        <li class="divider" tabindex="-1"></li>
+    <li><a href="#!"><center>HOU vs OKC</center></a></li>
+  </ul>
+
+  </div>
+
+  <script type="text/javascript">
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems);
+  });
+
+  
+  </script>
+        
 
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/materialize.min.js"></script>
