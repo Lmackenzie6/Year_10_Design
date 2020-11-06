@@ -8,8 +8,47 @@ body {
 
 .title {
 
-	color: #FFFFFF;
+	color: #0E499D;
 	text-align: center; 
 	font-family: 'Poppins', sans-serif; 
 	text-decoration: underline;
+	font-size: 60px;
+
+}
+
+.header {
+	color: #FEB9B9;
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	font-size: 30px;
+
+}
+
+.gamebtn {
+
+	background-color: #CD2F2A;
+	width: 100px;
+	height: 50px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	border-radius: 8px;
+	margin-bottom: 50px;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+	opacity: 0.8;
+	transition: 0.3s; 
+}
+
+.gamebtn:hover {opacity: 1}
+
+.gamebtn:active {
+  background-color: black;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+
+}
+
+.logo {
+
+	height: 10%;
+	width: 10%;
 }
