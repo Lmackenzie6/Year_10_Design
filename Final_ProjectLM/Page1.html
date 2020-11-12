@@ -44,54 +44,103 @@
 
 <div class="container">
 
+	<div class="row">
+	    <div class="col s6">
+	      <div class="row">
+	        <div class="input-field col s6">
+	          <i class="material-icons prefix">textsms</i>
+	          <input type="text" id="autocomplete-input" class="autocomplete">
+	          <label for="autocomplete-input">Select Team:</label>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+
+<!--
+
 	<div class="row" style="padding-top: 100px">
 		
-		<div class="col s3" style="padding-left: 50px">
+
+				<div class="col s3" style="padding-left: 50px">
 			<button class="gamebtn">placeholder</button>
 		</div>
 		
 
-
-		
 		<div class="col s3" style="padding-left: 50px">
 			<button class="gamebtn" onclick="window.location.href='Page2.html'">Lakers vs Heat Game 6 2020</button>
 		</div>
 
 	
+		<div class="col s3" style="padding-left: 50px">
+			<button class="gamebtn">placeholder</button>
+		</div>
 
-	
+		<div class="col s3" style="padding-left: 50px">
+			<button class="gamebtn">placeholder</button>
+		</div>
+
 		
-		<div class="col s3" style="padding-left: 50px">
-			<button class="gamebtn">placeholder</button>
-		</div>
-
-		<div class="col s3" style="padding-left: 50px">
-			<button class="gamebtn">placeholder</button>
-		</div>
-
-		<div class="row">
-			<center><div class="col s10">
-    <script type="text/javascript" src="https://widgets.sports-reference.com/wg.fcgi?css=1&site=bbr&url=%2Fleagues%2FNBA_2020_games.html&div=div_schedule"></script>
-    </div>
-</center>
-  </div>
 
 	</div>
-
+-->
 
 
 	
-
-
-
-
 
 </div>
 
 
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
+   <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
 
+    	
+		 
+		 document.addEventListener('DOMContentLoaded', function() {
+		    var elems = document.querySelectorAll('.autocomplete');
+		    var instances = M.Autocomplete.init(elems, {data: {
+
+        				"Atlanta Hawks": null,
+				        "Boston Celtics": null,
+				        "Brooklyn Nets": null,
+				        "Charlotte Hornets": null,
+				        "Chicago Bulls": null,
+				        "Cleveland Cavaliers": null,
+				        "Dallas Mavericks": null,
+				        "Denver Nuggets": null,
+				        "Detroit Pistons": null,
+				        "Golden State Warriors": null,
+				        "Houston Rockets": null,
+				        "Indiana Pacers": null,
+				        "Los Angeles Clippers": null,
+				        "Los Angeles Lakers": null,
+				        "Memphis Grizzlies": null,
+				        "Miami Heat": null,
+				        "Milwaukee Bucks": null,
+				        "Minnesota Timberwolves": null,
+				        "New Orleans Pelicans": null,
+				        "New York Knicks": null,
+				        "Oklahoma City Thunder": null,
+				        "Orlando Magic": null,
+				        "Philadelphia 76ers": null,
+				        "Phoenix Suns": null,
+				        "Portland Trail Blazers": null,
+				        "Sacramento Kings": null,
+				        "San Antonio Spurs": null,
+				        "Toronto Raptors": null,
+				        "Utah Jazz": null,
+				        "Washington Wizards": null,
+      				}
+      			,onAutocomplete: function(data) { 
+      				console.log("THIS")
+      			} 
+      		 });
+		  });
+
+</script>
 
 </body>
 
