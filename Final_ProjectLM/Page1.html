@@ -72,7 +72,7 @@
 
 <div class="row">
 	<div class="col s6">
-		<a class="waves-effect waves-light btn-large" id="sbtn">Submit</a>
+		<a class="waves-effect waves-light btn-large" id="sbtn" onclick="clicked()">Search</a>
 	</div>
 </div>
 
@@ -198,24 +198,121 @@ fetch(url, {
 	
 	ctr = ctr + 1
 //*/
+	
 
+	var team_map = {
 
-	function clicked() {
+		"Atlanta Hawks": 1,
+		"Boston Celtics": 2,
+		"Brooklyn Nets": 3,
+		"Charlotte Hornets": 4,
+		"Chicago Bulls": 5,
+		"Cleveland Cavaliers": 6,
+		"Dallas Mavericks": 7,
+		"Denver Nuggets": 8,
+		"Detroit Pistons": 9,
+		"Golden State Warriors": 10,
+		"Houston Rockets": 11,
+		"Indiana Pacers": 12,
+		"Los Angeles Clippers": 13,
+		"Los Angeles Lakers": 14,
+		"Memphis Grizzlies": 15,
+		"Miami Heat": 16,
+		"Milwaukee Bucks": 17,
+		"Minnesota Timberwolves": 18,
+		"New Orleans Pelicans": 19,
+		"New York Knicks": 20,
+		"Oklahoma City Thunder": 21,
+		"Orlando Magic": 22,
+		"Philadelphia 76ers": 23,
+		"Phoenix Suns": 24,
+		"Portland Trail Blazers": 25,
+		"Sacramento Kings": 26,
+		"San Antonio Spurs": 27,
+		"Toronto Raptors": 28,
+		"Utah Jazz": 29,
+		"Washington Wizards": 30,
+	}
 
-		console.log("clicked")
+	var season_map = {
+
+		"2010-2011": 2010,
+		"2011-2012": 2011,
+		"2012-2013": 2012,
+		"2013-2014": 2013,
+		"2014-2015": 2014,
+		"2015-2016": 2015,
+		"2016-2017": 2016,
+		"2017-2018": 2017,
+		"2018-2019": 2018,
+		"2019-2020": 2019,
 	}
 
 
+	var team_entry = document.getElementById("autocomplete-input1")
+	var season_entry = document.getElementById("autocomplete-input2")
 	
 	var sbtn = document.getElementById("sbtn")
-	console.log(sbtn)
+
+	function clicked() {
+
+	
+			team = team_entry.value
+			season = season_entry.value
+			console.log(team_map[team])
+			datapull(team_map[team],season_map[season])
+			console.log(season_map[season])
+			
+	}
+
+//proud of the code below
+
+	function datapull(team_id,seasons) {
+
+		
+		let url = "https://www.balldontlie.io/api/v1/games?per_page=100" + "?seasons[]=" + (seasons) + "&team_ids[]=" + (team_id)
+
+		console.log(url)
 
 
-	sbtn.addEventListener("click",clicked)
+		  	fetch(url, {
+		 
+			})
+			.then(response => response.json())
+			.then(result => {
+		  		console.log(result);
+		 	 //How do I loop through the pages
+		  
+
+			})
+			.catch(error => {
+			  console.error('Error:', error);
+			});
+
+	}
+
+	/*
+		fetch(url, {
+	
+
+	})
+	.then(response => response.json())
+	.then(result => {
+	 //*/
+		
+		
+
+		
+	
+	
+
+	
 
 
 
-	var team = document.getElementById("autocomplete-input1").value
+	
+
+	
 
 </script>
 
