@@ -42,28 +42,28 @@
  </div>
 
 
-<div class="container">
+<div class="container" style="padding-top: 50px">
 
 	<div class="row">
-	    <div class="col s6">
+	    <div class="col s5">
 	      <div class="row">
-	        <div class="input-field col s6">
+	        <div class="input-field">
 	          <i class="material-icons prefix">textsms</i>
 	          <input type="text" id="autocomplete-input1" class="autocomplete">
-	          <label for="autocomplete-input">Select Team:</label>
+	          <label for="autocomplete-input" class="#b71c1c red-text text-darken-4">Select Team:</label>
 	        </div>
 	      </div>
-	    </div>
+	    </div>		
 	  </div>
 
 
 <div class="row">
-	    <div class="col s6">
+	    <div class="col s5">
 	      <div class="row">
-	        <div class="input-field col s6">
+	        <div class="input-field">
 	          <i class="material-icons prefix">textsms</i>
 	          <input type="text" id="autocomplete-input2" class="autocomplete2">
-	          <label for="autocomplete-input">Select Season:</label>
+	          <label for="autocomplete-input" class="#b71c1c red-text text-darken-4">Select Season:</label>
 	        </div>
 	      </div>
 	    </div>
@@ -76,7 +76,16 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="col s6">
+		<h1 class="tscore">Final Scores:</h1>
+	</div>
+</div>
+
+<div class="row" id="datadisplay">
 	
+
+</div>
 
 </div>
 
@@ -156,48 +165,7 @@
 		  });
 
 
-	/*
-ctr = 0
-
-let url = "https://www.balldontlie.io/api/v1/games?"
-
-fetch(url, {
-	 
-	})
-	.then(response => response.json())
-	.then(result => {
-	  
-		pages = result["meta"]["total_pages"]
-		
-		//loops through all the pages
-		for (i = 0; i < pages; i = i + 1) {
-		
-			url = "https://www.balldontlie.io/api/v1/games?per_page=100&season=2018&page="+i;
-
-		
-		  	fetch(url, {
-		 
-			})
-			.then(response => response.json())
-			.then(result => {
-		  		console.log(result);
-		 	 //How do I loop through the pages
-		  
-
-			})
-			.catch(error => {
-			  console.error('Error:', error);
-			});
-		
-
-		}
-	})
-	.catch(error => {
-	  console.error('Error:', error);
-	});
 	
-	ctr = ctr + 1
-//*/
 	
 
 	var team_map = {
@@ -259,9 +227,7 @@ fetch(url, {
 	
 			team = team_entry.value
 			season = season_entry.value
-			console.log(team_map[team])
 			datapull(team_map[team],season_map[season])
-			console.log(season_map[season])
 			
 	}
 
@@ -272,7 +238,6 @@ fetch(url, {
 		
 		let url = "https://www.balldontlie.io/api/v1/games?per_page=100" + "?seasons[]=" + (seasons) + "&team_ids[]=" + (team_id)
 
-		console.log(url)
 
 
 		  	fetch(url, {
@@ -281,25 +246,67 @@ fetch(url, {
 			.then(response => response.json())
 			.then(result => {
 		  		console.log(result);
-		 	 //How do I loop through the pages
-		  
+		  		
+		  		dd = document.getElementById("datadisplay")
+
+
+		  		for (i = 0; i < result["data"].length; i = i + 1){
+
+		  				ht = result["data"][i]["home_team"]["full_name"]
+		  				vt = result["data"][i]["visitor_team"]["full_name"]
+
+		  				hs = result["data"][i]["home_team_score"]
+		  				vs = result["data"][i]["visitor_team_score"]
+
+
+		  				d = document.createElement("div")
+				  		d.id = "g1"
+
+				  		p = document.createElement("p")
+				  		p.id = "p1"
+
+
+				  		if (team_entry.value === vt){
+				  			
+				  			p.innerHTML = result["data"][i]["visitor_team"]["full_name"] + ": " + result["data"][i]["visitor_team_score"] + " vs " + result["data"][i]["home_team"]["full_name"] + ": " + result["data"][i]["home_team_score"];
+				  		} else {
+    						p.innerHTML = result["data"][i]["home_team"]["full_name"] + ": " + result["data"][i]["home_team_score"] + " vs " + result["data"][i]["visitor_team"]["full_name"] + ": " + result["data"][i]["visitor_team_score"];
+ 						
+ 						}
+
+				  		if (hs > vs) {
+
+				  			p.style.color = "#2e7d32"
+				  		}
+
+				  		if (vs > hs) {
+
+				  			p.style.color = "#e53935"
+				  		}
+
+
+
+				  		
+
+				  		
+				  		 
+
+				  		d.appendChild(p)
+				  		dd.appendChild(d)
+
+		  		}
+
+
 
 			})
 			.catch(error => {
 			  console.error('Error:', error);
 			});
 
-	}
 
-	/*
-		fetch(url, {
+	}
 	
 
-	})
-	.then(response => response.json())
-	.then(result => {
-	 //*/
-		
 		
 
 		
